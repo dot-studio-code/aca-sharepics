@@ -61,6 +61,7 @@ export default () => {
                   />
                   <span
                     dangerouslySetInnerHTML={{ __html: position }}
+                    style={{ whiteSpace: "pre-line" }}
                     className="block"
                   />
                 </div>
@@ -112,11 +113,13 @@ export default () => {
           <label htmlFor="position" className="block">
             Position
           </label>
-          <input
+          <textarea
             id="position"
             defaultValue={position}
             onChange={(e) => setPosition(e.target.value)}
             className="border-2 border-black"
+            rows={2}
+            cols={30}
           />
           <button
             className="block border-2 border-black p-1 mt-2"
