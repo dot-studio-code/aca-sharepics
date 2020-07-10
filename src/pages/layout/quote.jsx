@@ -41,10 +41,16 @@ export default () => {
             className="grid grid-cols-8 col-gap-2 relative"
             ref={sharepicRef}
           >
-            <QuoteIcon
-              width="60"
-              style={{ marginLeft: "24px", marginTop: "12px" }}
-            />
+            <div
+              className="absolute top-0 left-0 w-full"
+              style={{
+                paddingLeft: "24px",
+                paddingTop: "12px",
+              }}
+            >
+              <QuoteIcon width="60" />
+            </div>
+
             <div className="col-span-6 col-start-2 text-left flex items-center text-white">
               <div>
                 <span
@@ -61,8 +67,10 @@ export default () => {
                   />
                   <span
                     dangerouslySetInnerHTML={{ __html: position }}
-                    style={{ whiteSpace: "pre-line" }}
-                    className="block"
+                    style={{
+                      whiteSpace: "pre-line",
+                      display: position === "" ? "none" : "block",
+                    }}
                   />
                 </div>
               </div>
