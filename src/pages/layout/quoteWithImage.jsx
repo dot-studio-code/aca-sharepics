@@ -70,26 +70,26 @@ export default () => {
               }}
             />
 
-            <div className="col-span-6 col-start-2 text-left flex items-center text-white z-30">
+            <div className="col-span-6 w-full col-start-2 text-center flex items-end justify-center pb-24 text-white z-30">
               <div>
                 <span
                   dangerouslySetInnerHTML={{ __html: quoteText }}
                   style={{ whiteSpace: "pre-line" }}
                   className={`${
-                    (name !== "" || position !== "") && "mb-6"
+                    (name !== "" || position !== "") && "mb-4"
                   } block italic font-bold text-2xl leading-none`}
                 />
                 <div>
                   <span
                     dangerouslySetInnerHTML={{ __html: name }}
-                    className="block font-bold text-md"
+                    className="font-bold"
                   />
                   <span
                     dangerouslySetInnerHTML={{ __html: position }}
                     style={{
                       whiteSpace: "pre-line",
-                      display: position === "" ? "none" : "block",
                     }}
+                    className={`${name !== "" && "ml-4"}`}
                   />
                 </div>
               </div>
