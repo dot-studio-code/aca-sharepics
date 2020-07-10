@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import AcaWhite from "../../components/svg/acaWhite";
+import AcaColored from "../../components/svg/acaColored";
 import ColouredBar from "../../components/svg/colouredBar";
 import Draggable from "react-draggable";
 import { Link } from "gatsby";
@@ -9,9 +9,8 @@ import slugify from "react-slugify";
 
 export default () => {
   const [image, setImage] = useState(null);
-  const [quoteText, setQuoteText] = useState("Hier kommt der Zitattext rein.");
-  const [name, setName] = useState("Name der Person");
-  const [position, setPosition] = useState("Position");
+  const [airline, setAirline] = useState("Airline");
+  const [news, setNews] = useState("News");
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
   const sharepicRef = useRef(null);
 
@@ -20,7 +19,7 @@ export default () => {
       .toJpeg(sharepicRef.current, { quality: 1 })
       .then(function (dataUrl) {
         var link = document.createElement("a");
-        link.download = `sharepic-${slugify(quoteText)}.jpg`;
+        link.download = `sharepic-${slugify(news)}.jpg`;
         link.href = dataUrl;
         link.click();
       });
@@ -37,7 +36,7 @@ export default () => {
               width: "600px",
               height: "600px",
             }}
-            className="grid grid-cols-8 col-gap-2 relative"
+            className="grid grid-cols-8 col-gap-2 relative bg-white"
             ref={sharepicRef}
           >
             <Draggable
@@ -54,57 +53,52 @@ export default () => {
               <div
                 className="absolute top-0 left-0 w-full h-full z-50"
                 draggable
-              ></div>
+              />
             </Draggable>
             {image !== null && (
               <img
                 src={image}
                 className="absolute top-0 left-0 z-10"
                 style={{
-                  height: "100%",
+                  width: "100%",
+                  maxHeight: "50%",
+                  objectFit: "cover",
                   top: `${imagePosition.y}px`,
                   left: `${imagePosition.x}px`,
                 }}
               />
             )}
             <div
-              className="absolute top-0 left-0 w-full h-full z-20"
+              className="bg-black absolute z-20 w-full"
               style={{
-                backgroundImage:
-                  "linear-gradient(180deg, #fff 0%, #000000 120%)",
+                height: "50%",
+                backgroundColor: "rgba(51, 51, 51, 0.25)",
                 mixBlendMode: "multiply",
               }}
-            />
-
-            <div className="col-span-6 w-full col-start-2 text-center flex items-end justify-center pb-24 text-white z-30">
+            ></div>
+            <div className="col-span-8 flex justify-center z-20">
+              <span
+                dangerouslySetInnerHTML={{ __html: airline }}
+                className="mt-2 font-bold italic text-white text-md"
+              />
+            </div>
+            <div className="col-span-6 w-full col-start-2 text-center flex items-center justify-center pb-24 text-black z-30">
               <div>
                 <span
-                  dangerouslySetInnerHTML={{ __html: quoteText }}
+                  dangerouslySetInnerHTML={{ __html: news }}
                   style={{ whiteSpace: "pre-line" }}
-                  className={`${
-                    (name !== "" || position !== "") && "mb-4"
-                  } block italic font-bold text-2xl leading-none`}
+                  className="block italic font-bold text-2xl leading-none"
                 />
-                <div>
-                  <span
-                    dangerouslySetInnerHTML={{ __html: name }}
-                    className="font-bold"
-                  />
-                  <span
-                    dangerouslySetInnerHTML={{ __html: position }}
-                    style={{
-                      whiteSpace: "pre-line",
-                    }}
-                    className={`${name !== "" && "ml-4"}`}
-                  />
-                </div>
               </div>
             </div>
             <div
               className="col-span-12 flex justify-center absolute bottom-0 left-0 w-full"
               style={{ height: "4rem" }}
             >
-              <AcaWhite width="200" className="absolute bottom-0 z-30" />
+              <AcaColored
+                width="200"
+                className="absolute bottom-0 z-30 mb-12"
+              />
             </div>
             <ColouredBar width="600" className="absolute bottom-0 z-30" />
           </div>
@@ -118,36 +112,25 @@ export default () => {
             }
           />
 
-          <label htmlFor="quoteText" className="block">
-            Zitattext
-          </label>
-          <textarea
-            id="quoteText"
-            rows={4}
-            cols={30}
-            defaultValue={quoteText}
-            onChange={(e) => setQuoteText(e.target.value)}
-            className="border-2 border-black"
-          />
-          <label htmlFor="name" className="block">
-            Name
+          <label htmlFor="airline" className="block">
+            Airline
           </label>
           <input
-            id="name"
-            defaultValue={name}
-            onChange={(e) => setName(e.target.value)}
+            id="airline"
+            defaultValue={airline}
+            onChange={(e) => setAirline(e.target.value)}
             className="border-2 border-black"
           />
-          <label htmlFor="position" className="block">
-            Position
+          <label htmlFor="news" className="block">
+            News
           </label>
           <textarea
-            id="position"
-            defaultValue={position}
-            onChange={(e) => setPosition(e.target.value)}
-            className="border-2 border-black"
-            rows={2}
+            id="news"
+            rows={4}
             cols={30}
+            defaultValue={news}
+            onChange={(e) => setNews(e.target.value)}
+            className="border-2 border-black"
           />
           <button
             className="block border-2 border-black p-1 mt-2"
