@@ -9,7 +9,7 @@ export default () => (
           <h1 className="text-xl">👋 Dennis, wähle ein Template aus</h1>
         </div>
         <div className="col-span-4">
-          <Link to="layout/quoteWithImage">
+          <Link to="template/quoteWithImage">
             <ImageFixed
               name="quoteWithImage.jpg"
               className="hover:opacity-75 transition-all ease-in-out duration-200"
@@ -17,7 +17,7 @@ export default () => (
           </Link>
         </div>
         <div className="col-span-4">
-          <Link to="layout/news">
+          <Link to="template/news">
             <ImageFixed
               name="news.jpg"
               className="hover:opacity-75 transition-all ease-in-out duration-200"
@@ -25,7 +25,7 @@ export default () => (
           </Link>
         </div>
         <div className="col-span-4">
-          <Link to="layout/quote">
+          <Link to="template/quote">
             <ImageFixed
               name="quote.jpg"
               className="hover:opacity-75 transition-all ease-in-out duration-200"
@@ -33,7 +33,7 @@ export default () => (
           </Link>
         </div>
         <div className="col-span-4">
-          <Link to="layout/call">
+          <Link to="template/image">
             <ImageFixed
               name="call.jpg"
               className="hover:opacity-75 transition-all ease-in-out duration-200"
@@ -41,7 +41,7 @@ export default () => (
           </Link>
         </div>
         <div className="col-span-4">
-          <Link to="layout/info">
+          <Link to="template/notifaction">
             <ImageFixed
               name="info.jpg"
               className="hover:opacity-75 transition-all ease-in-out duration-200"

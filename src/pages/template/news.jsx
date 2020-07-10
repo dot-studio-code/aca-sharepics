@@ -41,7 +41,13 @@ export default () => {
             ref={sharepicRef}
           >
             <Draggable
+              onStart={(e, data) => {
+                setImagePosition({ x: data.x, y: data.y });
+              }}
               onDrag={(e, data) => {
+                setImagePosition({ x: data.x, y: data.y });
+              }}
+              onStop={(e, data) => {
                 setImagePosition({ x: data.x, y: data.y });
               }}
             >
@@ -148,6 +154,9 @@ export default () => {
             onClick={() => html2image()}
           >
             Download
+          </button>
+          <button onClick={() => setImagePosition({ x: 0, y: 0 })}>
+            reset
           </button>
         </div>
       </div>
