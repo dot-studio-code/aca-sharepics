@@ -2,12 +2,46 @@
 @tailwind utilities;
 @tailwind components;
 
+
+@font-face {
+  font-family: "Infra";
+  font-weight: 400;
+  src: url(/assets/fonts/infra/regular.woff);
+}
+
+@font-face {
+  font-family: "Infra";
+  font-weight: 500;
+  src: url(/assets/fonts/infra/medium.woff);
+}
+
+@font-face {
+  font-family: "Infra";
+  font-weight: 600;
+  src: url(/assets/fonts/infra/semiBold.woff);
+}
+
+
+@font-face {
+  font-family: "Infra";
+  font-weight: 700;
+  font-style: normal;
+  src: url(/assets/fonts/infra/bold.woff);
+}
+
+@font-face {
+  font-family: "Infra";
+  font-weight: 700;
+  font-style: italic;
+  src: url(/assets/fonts/infra/boldItalic.woff);
+}
+
 .bg-gradient {
   background: url("/assets/images/bg-gradient.jpg");
 }
 
 body {
-  font-family: "IBM Plex Sans";
+  font-family: "Infra";
 }
 
 h1 {

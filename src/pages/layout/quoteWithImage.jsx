@@ -37,7 +37,7 @@ export default () => {
                   dangerouslySetInnerHTML={{ __html: quoteText }}
                   className="block"
                   style={{ whiteSpace: "pre-line" }}
-                  className={`${(name !== "" || position !== "") && "mb-6"} block`}
+                  className={`${(name !== "" || position !== "") && "mb-6"} block italic font-bold text-2xl leading-none`}
                 />
                 <div>
                   <span dangerouslySetInnerHTML={{ __html: name }} />
