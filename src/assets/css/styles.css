@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+.bg-gradient {
+  background: url("/assets/images/bg-gradient.jpg");
+}
+
+body {
+  font-family: "IBM Plex Sans";
+}
+
+h1 {
+  @apply text-3xl;
+  @apply font-bold;
+}
+
+h2 {
+  @apply text-2xl;
+  @apply font-normal;
+}
+
+a {
+  @apply underline;
+}
+
+a:hover {
+  @apply no-underline;
+}
