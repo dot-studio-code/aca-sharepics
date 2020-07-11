@@ -12,7 +12,7 @@ export default () => {
   const [quoteText, setQuoteText] = useState("Hier kommt der Zitattext rein.");
   const [name, setName] = useState("Name der Person");
   const [position, setPosition] = useState("Position");
-  const [backgroundColor, setBackgroundColor] = useState("blau");
+  const [backgroundColor, setBackgroundColor] = useState("blue");
   const sharepicRef = useRef(null);
 
   const html2image = () => {
@@ -35,8 +35,9 @@ export default () => {
             style={{
               width: "600px",
               height: "600px",
-              backgroundColor: colors.find((c) => c.name === backgroundColor)
-                .color,
+              backgroundColor: colors.find(
+                (c) => c.label === backgroundColor && c.forQuote === true
+              ).color,
             }}
             className="grid grid-cols-8 col-gap-2 relative"
             ref={sharepicRef}
@@ -94,9 +95,10 @@ export default () => {
             onChange={(e) => setBackgroundColor(e.target.value)}
             className="border-2 border-black"
           >
-            {colors.map((color) => (
-              <option id={color.label}>{color.name}</option>
-            ))}
+            {colors.map(
+              (color) =>
+                color.forQuote && <option value={color.label}>{color.name}</option>
+            )}
           </select>
           <label htmlFor="quoteText" className="block">
             Zitattext

@@ -41,7 +41,7 @@ export default () => (
           </Link>
         </div>
         <div className="col-span-4">
-          <Link to="template/notifaction">
+          <Link to="template/notification">
             <ImageFixed
               name="info.jpg"
               className="hover:opacity-75 transition-all ease-in-out duration-200"

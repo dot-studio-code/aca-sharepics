@@ -2,7 +2,6 @@
 @tailwind utilities;
 @tailwind components;
 
-
 @font-face {
   font-family: "Infra";
   font-weight: 400;
@@ -20,7 +19,6 @@
   font-weight: 600;
   src: url(/assets/fonts/infra/semiBold.woff);
 }
-
 
 @font-face {
   font-family: "Infra";
@@ -60,4 +58,9 @@ a {
 
 a:hover {
   @apply no-underline;
+}
+
+input,
+textarea {
+  @apply p-1;
 }
