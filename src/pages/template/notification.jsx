@@ -46,7 +46,7 @@ export default () => {
                 backgroundColor: "#fff",
               }}
             />
-            <div className="absolute w-full top-0 left-0 text-black z-30 flex justify-center mt-2">
+            <div className="absolute w-full top-0 left-0 text-black z-30 flex justify-center mt-4">
               <div className="flex items-center text-black font-bold italic">
                 <NotificationIcon type={type} className="inline mr-3" />
                 {
