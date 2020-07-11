@@ -9,7 +9,9 @@ import htmlToImage from "html-to-image";
 import slugify from "react-slugify";
 
 export default () => {
-  const [text, setText] = useState("Hier kommt der Text rein.");
+  const [text, setText] = useState(
+    "Hier kommt der Text rein. Setze Text in [eckige Klammern], damit die Farbe geändert wird."
+  );
   const [type, setType] = useState("question");
   const sharepicRef = useRef(null);
 
@@ -58,12 +60,25 @@ export default () => {
             <div className="col-span-6 w-full col-start-2 text-center flex items-center justify-center pb-24 text-black z-30">
               <div>
                 <span
-                  dangerouslySetInnerHTML={{ __html: text }}
+                  dangerouslySetInnerHTML={{
+                    __html: text
+                      .replace(
+                        /\[/gi,
+                        `<span style='color: ${
+                          colors.find(
+                            (color) =>
+                              color.label ===
+                              notificationTypes.find(
+                                (notificationType) =>
+                                  notificationType.label === type
+                              ).color
+                          ).color
+                        }'>`
+                      )
+                      .replace(/\]/gi, `</span>`),
+                  }}
                   style={{
                     whiteSpace: "pre-line",
-                    color: colors.find((color) => color.label === notificationTypes.find(
-                      (notificationType) => notificationType.label === type
-                    ).color).color,
                   }}
                   className="block italic font-bold text-2xl leading-none"
                 />
@@ -73,7 +88,10 @@ export default () => {
               className="col-span-12 flex justify-center absolute bottom-0 left-0 w-full"
               style={{ height: "4rem" }}
             >
-              <AcaColored width="200" className="absolute bottom-0 z-30 mb-12" />
+              <AcaColored
+                width="200"
+                className="absolute bottom-0 z-30 mb-12"
+              />
             </div>
             <ColouredBar width="600" className="absolute bottom-0 z-30" />
           </div>
