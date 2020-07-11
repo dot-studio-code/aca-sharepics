@@ -9,10 +9,12 @@ import slugify from "react-slugify";
 
 export default () => {
   const [image, setImage] = useState(null);
+  const [scale, setScale] = useState(0);
   const [airline, setAirline] = useState("Airline");
   const [news, setNews] = useState("News");
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
   const sharepicRef = useRef(null);
+  const draggableRef = useRef(null);
 
   const html2image = () => {
     htmlToImage
@@ -40,31 +42,29 @@ export default () => {
             ref={sharepicRef}
           >
             <Draggable
-              onStart={(e, data) => {
-                setImagePosition({ x: data.x, y: data.y });
-              }}
               onDrag={(e, data) => {
                 setImagePosition({ x: data.x, y: data.y });
               }}
               onStop={(e, data) => {
                 setImagePosition({ x: data.x, y: data.y });
+                draggableRef.current.style.transform = "translate(0px, 0px)";
               }}
             >
               <div
-                className="absolute top-0 left-0 w-full h-full z-50"
+                className="absolute top-0 left-0 w-full h-full z-50 cursor-pointer"
+                ref={draggableRef}
                 draggable
               />
             </Draggable>
             {image !== null && (
-              <img
-                src={image}
-                className="absolute top-0 left-0 z-10"
+              <div
+                className="absolute top-0 left-0 z-10 w-full"
                 style={{
-                  width: "100%",
-                  maxHeight: "50%",
-                  objectFit: "cover",
-                  top: `${imagePosition.y}px`,
-                  left: `${imagePosition.x}px`,
+                  backgroundImage: `url(${image})`,
+                  height: "50%",
+                  backgroundPositionX: `${imagePosition.x}px`,
+                  backgroundPositionY: `${imagePosition.y}px`,
+                  backgroundSize: `${scale * 10 + 100}%`,
                 }}
               />
             )}
@@ -110,6 +110,16 @@ export default () => {
               e.target.files[0] !== null &&
               setImage(URL.createObjectURL(e.target.files[0]))
             }
+          />
+          <label for="scale" className="block">Zoomfaktor</label>
+          <input
+            type="range"
+            id="scale"
+            name="scale"
+            min="0"
+            defaultValue={scale}
+            max="30"
+            onChange={(e) => setScale(e.target.value)}
           />
 
           <label htmlFor="airline" className="block">

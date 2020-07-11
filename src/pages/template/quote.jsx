@@ -107,6 +107,7 @@ export default () => {
             id="quoteText"
             rows={4}
             cols={30}
+            maxLength={160}
             defaultValue={quoteText}
             onChange={(e) => setQuoteText(e.target.value)}
             className="border-2 border-black"
