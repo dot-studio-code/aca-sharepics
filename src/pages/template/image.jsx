@@ -54,18 +54,18 @@ export default () => {
                 ref={draggableRef}
               />
             </Draggable>
-            {image !== null && (
-              <div
-                className="absolute top-0 left-0 z-10 w-full"
-                style={{
-                  backgroundImage: `url(${image})`,
-                  height: "100%",
-                  backgroundPositionX: `${imagePosition.x}px`,
-                  backgroundPositionY: `${imagePosition.y}px`,
-                  backgroundSize: `${scale * 10 + 100}%`,
-                }}
-              />
-            )}
+            <div
+              className="absolute top-0 left-0 z-10 w-full"
+              style={{
+                backgroundImage: `url(${
+                  image !== null ? image : "/assets/images/strike.jpg"
+                })`,
+                height: "100%",
+                backgroundPositionX: `${imagePosition.x}px`,
+                backgroundPositionY: `${imagePosition.y}px`,
+                backgroundSize: `${scale * 10 + 100}%`,
+              }}
+            />
             <div
               className="absolute top-0 left-0 w-full h-full z-20"
               style={{

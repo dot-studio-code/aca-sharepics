@@ -56,18 +56,18 @@ export default () => {
                 draggable
               />
             </Draggable>
-            {image !== null && (
-              <div
-                className="absolute top-0 left-0 z-10 w-full"
-                style={{
-                  backgroundImage: `url(${image})`,
-                  height: "50%",
-                  backgroundPositionX: `${imagePosition.x}px`,
-                  backgroundPositionY: `${imagePosition.y}px`,
-                  backgroundSize: `${scale * 10 + 100}%`,
-                }}
-              />
-            )}
+            <div
+              className="absolute top-0 left-0 z-10 w-full"
+              style={{
+                backgroundImage: `url(${
+                  image !== null ? image : "/assets/images/engines.jpg"
+                })`,
+                height: "50%",
+                backgroundPositionX: `${imagePosition.x}px`,
+                backgroundPositionY: `${imagePosition.y}px`,
+                backgroundSize: `${scale * 10 + 100}%`,
+              }}
+            />
             <div
               className="bg-black absolute z-20 w-full"
               style={{
@@ -111,7 +111,9 @@ export default () => {
               setImage(URL.createObjectURL(e.target.files[0]))
             }
           />
-          <label for="scale" className="block">Zoomfaktor</label>
+          <label for="scale" className="block">
+            Zoomfaktor
+          </label>
           <input
             type="range"
             id="scale"

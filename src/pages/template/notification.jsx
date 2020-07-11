@@ -62,23 +62,18 @@ export default () => {
                 <span
                   dangerouslySetInnerHTML={{
                     __html: text
-                      .replace(
-                        /\[/gi,
-                        `<span style='color: ${
-                          colors.find(
-                            (color) =>
-                              color.label ===
-                              notificationTypes.find(
-                                (notificationType) =>
-                                  notificationType.label === type
-                              ).color
-                          ).color
-                        }'>`
-                      )
+                      .replace(/\[/gi, `<span style='color: black'>`)
                       .replace(/\]/gi, `</span>`),
                   }}
                   style={{
                     whiteSpace: "pre-line",
+                    color: colors.find(
+                      (color) =>
+                        color.label ===
+                        notificationTypes.find(
+                          (notificationType) => notificationType.label === type
+                        ).color
+                    ).color,
                   }}
                   className="block italic font-bold text-2xl leading-none"
                 />
