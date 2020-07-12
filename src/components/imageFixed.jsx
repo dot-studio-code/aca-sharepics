@@ -13,7 +13,7 @@ const ImageFixed = ({ name: fileName, width = "100%", ...props }) => {
           node {
             fixed(height: 1000) {
               height
-              srcSetWebp
+              srcSet
               originalName
             }
           }

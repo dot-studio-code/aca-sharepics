@@ -19,7 +19,7 @@ export default () => {
           <div className="col-span-4">
             <Link to="template/quoteWithImage">
               <ImageFixed
-                name="quoteWithImage.png"
+                name="quoteWithImage.jpg"
                 className="hover:opacity-75 transition-all ease-in-out duration-200"
               />
             </Link>
@@ -27,7 +27,7 @@ export default () => {
           <div className="col-span-4">
             <Link to="template/news">
               <ImageFixed
-                name="news.png"
+                name="news.jpg"
                 className="hover:opacity-75 transition-all ease-in-out duration-200"
               />
             </Link>
@@ -35,7 +35,7 @@ export default () => {
           <div className="col-span-4">
             <Link to="template/quote">
               <ImageFixed
-                name="quote.png"
+                name="quote.jpg"
                 className="hover:opacity-75 transition-all ease-in-out duration-200"
               />
             </Link>
@@ -43,7 +43,7 @@ export default () => {
           <div className="col-span-4">
             <Link to="template/image">
               <ImageFixed
-                name="call.png"
+                name="call.jpg"
                 className="hover:opacity-75 transition-all ease-in-out duration-200"
               />
             </Link>
@@ -51,7 +51,7 @@ export default () => {
           <div className="col-span-4">
             <Link to="template/notification">
               <ImageFixed
-                name="info.png"
+                name="info.jpg"
                 className="hover:opacity-75 transition-all ease-in-out duration-200"
               />
             </Link>
