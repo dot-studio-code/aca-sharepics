@@ -83,16 +83,14 @@ export default () => {
                 className="mt-2 font-bold italic text-white text-md"
               />
             </div>
-            <div className="col-span-6 w-full col-start-2 text-center flex items-center justify-center pb-24 text-black z-30">
-              <div>
+            <div className="col-span-6 w-full col-start-2 text-center flex items-center justify-center text-black z-30">
                 <span
                   dangerouslySetInnerHTML={{
                     __html: formatEmojis(news),
                   }}
                   style={{ whiteSpace: "pre-line" }}
-                  className="block italic font-bold text-2xl leading-none"
+                  className="block italic font-bold text-2xl leading-none mb-4"
                 />
-              </div>
             </div>
             <div
               className="col-span-12 flex justify-center absolute bottom-0 left-0 w-full"

@@ -1,21 +1,8 @@
 module.exports = {
   siteMetadata: {
-    name: "Tear this down",
-    title: "Kolonialismus jetzt beseitigen",
-    description:
-      "Koloniale Namen finden sich auch 2020 in vielen Ortsbezeichnungen! Diese Karte schafft einen Überblick über die Problematik.",
-    shortDescription:
-      "Koloniale Namen finden sich auch 2020 in vielen Ortsbezeichnungen! Diese Karte schafft einen Überblick über die Problematik.",
-    keywords: [
-      "Kolonialismus",
-      "Postkolonialismus",
-      "Straßennamen",
-      "Bismarck",
-      "Lüderitz",
-      "Deutschland Karte",
-    ],
-    siteURL: "https://www.tearthisdown.com",
-    ogImagePath: "/assets/images/og-image.jpg",
+    name: "Aircrew Alliance – Sharpic Generaotr",
+    title: "Aircrew Alliance – Sharpic Generaotr",
+    siteURL: "https://share.aircrewalliance.com",
   },
   plugins: [
     "gatsby-plugin-resolve-src",
