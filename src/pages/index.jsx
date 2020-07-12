@@ -16,7 +16,7 @@ export default () => {
               Dennis, wähle ein Template aus
             </h1>
           </div>
-          <div className="col-span-4">
+          <div className="col-span-12 sm:col-span-4">
             <Link to="template/quoteWithImage">
               <ImageFixed
                 name="quoteWithImage.jpg"
@@ -24,7 +24,7 @@ export default () => {
               />
             </Link>
           </div>
-          <div className="col-span-4">
+          <div className="col-span-12 sm:col-span-4">
             <Link to="template/news">
               <ImageFixed
                 name="news.jpg"
@@ -32,7 +32,7 @@ export default () => {
               />
             </Link>
           </div>
-          <div className="col-span-4">
+          <div className="col-span-12 sm:col-span-4">
             <Link to="template/quote">
               <ImageFixed
                 name="quote.jpg"
@@ -40,7 +40,7 @@ export default () => {
               />
             </Link>
           </div>
-          <div className="col-span-4">
+          <div className="col-span-12 sm:col-span-4">
             <Link to="template/image">
               <ImageFixed
                 name="call.jpg"
@@ -48,7 +48,7 @@ export default () => {
               />
             </Link>
           </div>
-          <div className="col-span-4">
+          <div className="col-span-12 sm:col-span-4">
             <Link to="template/notification">
               <ImageFixed
                 name="info.jpg"

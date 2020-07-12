@@ -11,7 +11,7 @@ import slugify from "react-slugify";
 export default () => {
   const [image, setImage] = useState(null);
   const [scale, setScale] = useState(0);
-  const [airline, setAirline] = useState("Airline");
+  const [topic, setTopic] = useState("Airline / Thema");
   const [news, setNews] = useState(
     "Hier kommt der Newstext rein. Es gehen auch Emojis! ✈️"
   );
@@ -21,7 +21,7 @@ export default () => {
 
   const html2image = () => {
     htmlToImage
-      .toJpeg(sharepicRef.current, { quality: 1 })
+      .toJpeg(sharepicRef.current, { quality: 1, width: 600, height: 600 })
       .then(function (dataUrl) {
         var link = document.createElement("a");
         link.download = `sharepic-${slugify(news)}.jpg`;
@@ -82,7 +82,7 @@ export default () => {
             ></div>
             <div className="col-span-8 flex justify-center z-20">
               <span
-                dangerouslySetInnerHTML={{ __html: airline }}
+                dangerouslySetInnerHTML={{ __html: topic }}
                 className="mt-2 font-bold italic text-white text-md"
               />
             </div>
@@ -129,13 +129,13 @@ export default () => {
             onChange={(e) => setScale(e.target.value)}
           />
 
-          <label htmlFor="airline" className="block">
-            Airline
+          <label htmlFor="topic" className="block">
+            Thema
           </label>
           <input
-            id="airline"
-            defaultValue={airline}
-            onChange={(e) => setAirline(e.target.value)}
+            id="topic"
+            defaultValue={topic}
+            onChange={(e) => setTopic(e.target.value)}
             className="border-2 border-black"
           />
           <label htmlFor="news" className="block">

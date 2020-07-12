@@ -18,7 +18,7 @@ export default () => {
 
   const html2image = () => {
     htmlToImage
-      .toJpeg(sharepicRef.current, { quality: 1 })
+      .toJpeg(sharepicRef.current, { quality: 1, width: 600, height: 600 })
       .then(function (dataUrl) {
         var link = document.createElement("a");
         link.download = `sharepic-${slugify(quoteText)}.jpg`;
