@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    name: "Aircrew Alliance – Sharpic Generaotr",
-    title: "Aircrew Alliance – Sharpic Generaotr",
+    name: "Aircrew Alliance – Sharepic Generator",
+    title: "Aircrew Alliance – Sharepic Generator",
     siteURL: "https://share.aircrewalliance.com",
   },
   plugins: [
