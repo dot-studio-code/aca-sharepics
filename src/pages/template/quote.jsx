@@ -13,7 +13,7 @@ export default () => {
   const [quoteText, setQuoteText] = useState("Hier kommt der Zitattext rein.");
   const [name, setName] = useState("Name der Person");
   const [position, setPosition] = useState("Position");
-  const [backgroundColor, setBackgroundColor] = useState("blue");
+  const [backgroundColor, setBackgroundColor] = useState("red");
   const sharepicRef = useRef(null);
 
   const html2image = () => {

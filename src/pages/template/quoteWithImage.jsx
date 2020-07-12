@@ -106,7 +106,7 @@ export default () => {
               </div>
             </div>
             <div
-              className="col-span-12 flex justify-center absolute bottom-0 left-0 w-full"
+              className="col-span-8 flex justify-center absolute bottom-0 left-0 w-full"
               style={{ height: "4rem" }}
             >
               <AcaWhite width="200" className="absolute bottom-0 z-30" />

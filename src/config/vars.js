@@ -1,6 +1,6 @@
 export const colors = [
-  { label: "blue", name: "blau", color: "#0096C8", forQuote: true },
   { label: "red", name: "rot", color: "#F10C4A", forQuote: true },
+  { label: "blue", name: "blau", color: "#0096C8", forQuote: true },
   { label: "purple", name: "lila", color: "#A00078", forQuote: true },
   { label: "green", name: "grün", color: "#78C846", forQuote: true },
   { label: "orange", name: "orange", color: "#FA7800", forQuote: true },
