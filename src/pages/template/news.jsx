@@ -12,7 +12,9 @@ export default () => {
   const [image, setImage] = useState(null);
   const [scale, setScale] = useState(0);
   const [airline, setAirline] = useState("Airline");
-  const [news, setNews] = useState("News");
+  const [news, setNews] = useState(
+    "Hier kommt der Newstext rein. Es gehen auch Emojis! ✈️"
+  );
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
   const sharepicRef = useRef(null);
   const draggableRef = useRef(null);
@@ -85,13 +87,20 @@ export default () => {
               />
             </div>
             <div className="col-span-6 w-full col-start-2 text-center flex flex-col items-center text-black z-30">
-              <span
-                dangerouslySetInnerHTML={{
-                  __html: formatEmojis(news),
-                }}
-                style={{ whiteSpace: "pre-line", flexGrow: "1" }}
-                className="flex items-center italic font-bold text-2xl leading-none self-center"
-              />
+              <div
+                style={{ flexGrow: "1" }}
+                className="flex items-center self-center leading-none font-bold text-2xl"
+              >
+                <div>
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: formatEmojis(news),
+                    }}
+                    style={{ whiteSpace: "pre-line" }}
+                    className="italic"
+                  />
+                </div>
+              </div>
 
               <AcaColored width="200" className="block mb-12" />
             </div>
