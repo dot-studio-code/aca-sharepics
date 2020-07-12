@@ -5,6 +5,7 @@ import AcaColored from "../../components/svg/acaColored";
 import ColouredBar from "../../components/svg/colouredBar";
 import { Link } from "gatsby";
 import NotificationIcon from "../../components/notificationIcon";
+import emojiRegex from "emoji-regex";
 import htmlToImage from "html-to-image";
 import slugify from "react-slugify";
 
@@ -63,7 +64,11 @@ export default () => {
                   dangerouslySetInnerHTML={{
                     __html: text
                       .replace(/\[/gi, `<span style='color: black'>`)
-                      .replace(/\]/gi, `</span>`),
+                      .replace(/\]/gi, `</span>`)
+                      .replace(
+                        emojiRegex(),
+                        (m) => `<span class="not-italic">${m}</span>`
+                      ),
                   }}
                   style={{
                     whiteSpace: "pre-line",

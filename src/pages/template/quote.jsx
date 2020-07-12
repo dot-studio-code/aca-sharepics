@@ -5,6 +5,7 @@ import ColouredBar from "../../components/svg/colouredBar";
 import { Link } from "gatsby";
 import QuoteIcon from "../../components/svg/quote";
 import { colors } from "../../config/vars";
+import emojiRegex from "emoji-regex";
 import htmlToImage from "html-to-image";
 import slugify from "react-slugify";
 
@@ -55,7 +56,12 @@ export default () => {
             <div className="col-span-6 col-start-2 text-left flex items-center text-white">
               <div>
                 <span
-                  dangerouslySetInnerHTML={{ __html: quoteText }}
+                  dangerouslySetInnerHTML={{
+                    __html: quoteText.replace(
+                      emojiRegex(),
+                      (m) => `<span class="not-italic">${m}</span>`
+                    ),
+                  }}
                   style={{ whiteSpace: "pre-line" }}
                   className={`${
                     (name !== "" || position !== "") && "mb-6"
@@ -97,7 +103,9 @@ export default () => {
           >
             {colors.map(
               (color) =>
-                color.forQuote && <option value={color.label}>{color.name}</option>
+                color.forQuote && (
+                  <option value={color.label}>{color.name}</option>
+                )
             )}
           </select>
           <label htmlFor="quoteText" className="block">

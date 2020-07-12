@@ -4,6 +4,7 @@ import AcaColored from "../../components/svg/acaColored";
 import ColouredBar from "../../components/svg/colouredBar";
 import Draggable from "react-draggable";
 import { Link } from "gatsby";
+import emojiRegex from "emoji-regex";
 import htmlToImage from "html-to-image";
 import slugify from "react-slugify";
 
@@ -85,7 +86,12 @@ export default () => {
             <div className="col-span-6 w-full col-start-2 text-center flex items-center justify-center pb-24 text-black z-30">
               <div>
                 <span
-                  dangerouslySetInnerHTML={{ __html: news }}
+                  dangerouslySetInnerHTML={{
+                    __html: news.replace(
+                      emojiRegex(),
+                      (m) => `<span class="not-italic">${m}</span>`
+                    ),
+                  }}
                   style={{ whiteSpace: "pre-line" }}
                   className="block italic font-bold text-2xl leading-none"
                 />
