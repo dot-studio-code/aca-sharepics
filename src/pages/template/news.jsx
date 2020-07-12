@@ -13,7 +13,7 @@ export default () => {
   const [scale, setScale] = useState(0);
   const [topic, setTopic] = useState("Airline / Thema");
   const [news, setNews] = useState(
-    "Hier kommt der Newstext rein. Es gehen auch Emojis! ✈️"
+    "Hier kommt der Newstext rein.\nEmojis gehen auch! ✈️"
   );
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
   const sharepicRef = useRef(null);
