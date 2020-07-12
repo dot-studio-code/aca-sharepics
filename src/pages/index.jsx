@@ -6,7 +6,9 @@ export default () => (
     <div className="container">
       <div className="mx-auto grid grid-cols-12 col-gap-2 row-gap-2 py-5">
         <div className="col-span-12 text-center">
-          <h1 className="text-xl">👋 Dennis, wähle ein Template aus</h1>
+          <h1 className="text-xl">
+            <span role="img" aria-label="hello">👋</span> Dennis, wähle ein Template aus
+          </h1>
         </div>
         <div className="col-span-4">
           <Link to="template/quoteWithImage">

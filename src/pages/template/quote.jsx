@@ -5,7 +5,7 @@ import ColouredBar from "../../components/svg/colouredBar";
 import { Link } from "gatsby";
 import QuoteIcon from "../../components/svg/quote";
 import { colors } from "../../config/vars";
-import emojiRegex from "emoji-regex";
+import { formatEmojis } from "../../components/lib/lib";
 import htmlToImage from "html-to-image";
 import slugify from "react-slugify";
 
@@ -57,10 +57,7 @@ export default () => {
               <div>
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: quoteText.replace(
-                      emojiRegex(),
-                      (m) => `<span class="not-italic">${m}</span>`
-                    ),
+                    __html: formatEmojis(quoteText),
                   }}
                   style={{ whiteSpace: "pre-line" }}
                   className={`${

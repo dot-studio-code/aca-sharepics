@@ -4,7 +4,7 @@ import AcaWhite from "../../components/svg/acaWhite";
 import ColouredBar from "../../components/svg/colouredBar";
 import Draggable from "react-draggable";
 import { Link } from "gatsby";
-import emojiRegex from "emoji-regex";
+import { formatEmojis } from "../../components/lib/lib";
 import htmlToImage from "html-to-image";
 import slugify from "react-slugify";
 
@@ -83,10 +83,7 @@ export default () => {
               <div>
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: quoteText.replace(
-                      emojiRegex(),
-                      (m) => `<span class="not-italic">${m}</span>`
-                    ),
+                    __html: formatEmojis(quoteText),
                   }}
                   style={{ whiteSpace: "pre-line" }}
                   className={`${
@@ -125,7 +122,7 @@ export default () => {
               setImage(URL.createObjectURL(e.target.files[0]))
             }
           />
-          <label for="scale" className="block">
+          <label htmlFor="scale" className="block">
             Zoomfaktor
           </label>
           <input

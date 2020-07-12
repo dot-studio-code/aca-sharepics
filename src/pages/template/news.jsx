@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import AcaColored from "../../components/svg/acaColored";
 import ColouredBar from "../../components/svg/colouredBar";
 import Draggable from "react-draggable";
 import { Link } from "gatsby";
-import emojiRegex from "emoji-regex";
+import { formatEmojis } from "../../components/lib/lib";
 import htmlToImage from "html-to-image";
 import slugify from "react-slugify";
 
@@ -87,10 +87,7 @@ export default () => {
               <div>
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: news.replace(
-                      emojiRegex(),
-                      (m) => `<span class="not-italic">${m}</span>`
-                    ),
+                    __html: formatEmojis(news),
                   }}
                   style={{ whiteSpace: "pre-line" }}
                   className="block italic font-bold text-2xl leading-none"
@@ -117,7 +114,7 @@ export default () => {
               setImage(URL.createObjectURL(e.target.files[0]))
             }
           />
-          <label for="scale" className="block">
+          <label htmlFor="scale" className="block">
             Zoomfaktor
           </label>
           <input
