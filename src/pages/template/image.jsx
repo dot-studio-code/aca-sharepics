@@ -70,7 +70,10 @@ export default () => {
             <div
               className="absolute top-0 left-0 w-full h-full z-20"
               style={{
-                backgroundColor: "rgba(0, 0, 0, 0.35)",
+                backgroundColor: quoteText !== "" && "rgba(0, 0, 0, 0.35)",
+                backgroundImage:
+                  quoteText === "" &&
+                  "linear-gradient(180deg, #fff 80%, #000000 105%)",
                 mixBlendMode: "multiply",
               }}
             />
