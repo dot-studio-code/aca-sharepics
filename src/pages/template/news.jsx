@@ -38,6 +38,7 @@ export default () => {
             style={{
               width: "600px",
               height: "600px",
+              gridAutoRows: "1fr",
             }}
             className="grid grid-cols-8 col-gap-2 relative bg-white"
             ref={sharepicRef}
@@ -83,24 +84,18 @@ export default () => {
                 className="mt-2 font-bold italic text-white text-md"
               />
             </div>
-            <div className="col-span-6 w-full col-start-2 text-center flex items-center justify-center text-black z-30">
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: formatEmojis(news),
-                  }}
-                  style={{ whiteSpace: "pre-line" }}
-                  className="block italic font-bold text-2xl leading-none mb-4"
-                />
-            </div>
-            <div
-              className="col-span-12 flex justify-center absolute bottom-0 left-0 w-full"
-              style={{ height: "4rem" }}
-            >
-              <AcaColored
-                width="200"
-                className="absolute bottom-0 z-30 mb-12"
+            <div className="col-span-6 w-full col-start-2 text-center flex flex-col items-center text-black z-30">
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: formatEmojis(news),
+                }}
+                style={{ whiteSpace: "pre-line", flexGrow: "1" }}
+                className="flex items-center italic font-bold text-2xl leading-none self-center"
               />
+
+              <AcaColored width="200" className="block mb-12" />
             </div>
+
             <ColouredBar width="600" className="absolute bottom-0 z-30" />
           </div>
         </div>
