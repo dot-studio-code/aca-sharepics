@@ -3,6 +3,11 @@ import ImageFixed from "../components/imageFixed";
 import Layout from "../components/layout";
 import { Link } from "gatsby";
 import React from "react";
+import imageImage from "../assets/images/templates/image.jpg";
+import newsImage from "../assets/images/templates/news.jpg";
+import notificationImage from "../assets/images/templates/notification.jpg";
+import quoteImage from "../assets/images/templates/quote.jpg";
+import quoteWithImageImage from "../assets/images/templates/quoteWithImage.jpg";
 
 export default () => {
   return (
@@ -17,40 +22,40 @@ export default () => {
             </div>
             <div className="col-span-12 sm:col-span-4 text-center">
               <Link to="template/quoteWithImage">
-                <ImageFixed
-                  name="quoteWithImage.jpg"
+                <img
+                  src={quoteWithImageImage}
                   className="hover:opacity-75 transition-all ease-in-out duration-200"
                 />
               </Link>
             </div>
             <div className="col-span-12 sm:col-span-4">
               <Link to="template/news">
-                <ImageFixed
-                  name="news.jpg"
+                <img
+                  src={newsImage}
                   className="hover:opacity-75 transition-all ease-in-out duration-200"
                 />
               </Link>
             </div>
             <div className="col-span-12 sm:col-span-4">
               <Link to="template/quote">
-                <ImageFixed
-                  name="quote.jpg"
+                <img
+                  src={quoteImage}
                   className="hover:opacity-75 transition-all ease-in-out duration-200"
                 />
               </Link>
             </div>
             <div className="col-span-12 sm:col-span-4">
               <Link to="template/image">
-                <ImageFixed
-                  name="call.jpg"
+                <img
+                  src={imageImage}
                   className="hover:opacity-75 transition-all ease-in-out duration-200"
                 />
               </Link>
             </div>
             <div className="col-span-12 sm:col-span-4">
               <Link to="template/notification">
-                <ImageFixed
-                  name="info.jpg"
+                <img
+                  src={notificationImage}
                   className="hover:opacity-75 transition-all ease-in-out duration-200"
                 />
               </Link>
