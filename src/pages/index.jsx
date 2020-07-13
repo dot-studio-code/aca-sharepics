@@ -1,5 +1,4 @@
 import AcaColored from "../components/svg/acaColored";
-import ImageFixed from "../components/imageFixed";
 import Layout from "../components/layout";
 import { Link } from "gatsby";
 import React from "react";
