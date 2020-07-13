@@ -20,39 +20,56 @@ export default () => {
               </h1>
             </div>
             <div className="col-span-12 sm:col-span-4 text-center">
-              <Link to="template/quoteWithImage">
+              <Link
+                to="template/quoteWithImage"
+                className="no-underline hover:underline"
+              >
+                <span className="text-md">Zitat mit Bild</span>
                 <img
                   src={quoteWithImageImage}
                   className="hover:opacity-75 transition-all ease-in-out duration-200"
                 />
               </Link>
             </div>
-            <div className="col-span-12 sm:col-span-4">
-              <Link to="template/news">
+            <div className="col-span-12 sm:col-span-4 text-center">
+              <Link to="template/news" className="no-underline hover:underline">
+                <span className="text-md">Meldung</span>
                 <img
                   src={newsImage}
                   className="hover:opacity-75 transition-all ease-in-out duration-200"
                 />
               </Link>
             </div>
-            <div className="col-span-12 sm:col-span-4">
-              <Link to="template/quote">
+            <div className="col-span-12 sm:col-span-4 text-center">
+              <Link
+                to="template/quote"
+                className="no-underline hover:underline"
+              >
+                <span className="text-md">Zitat ohne Bild</span>
                 <img
                   src={quoteImage}
                   className="hover:opacity-75 transition-all ease-in-out duration-200"
                 />
               </Link>
             </div>
-            <div className="col-span-12 sm:col-span-4">
-              <Link to="template/image">
+            <div className="col-span-12 sm:col-span-4 text-center">
+              <Link
+                to="template/image"
+                className="no-underline hover:underline"
+              >
+                <span className="text-md">Bild mit / ohne Text</span>
                 <img
                   src={imageImage}
                   className="hover:opacity-75 transition-all ease-in-out duration-200"
                 />
               </Link>
             </div>
-            <div className="col-span-12 sm:col-span-4">
-              <Link to="template/notification">
+            <div className="col-span-12 sm:col-span-4 text-center">
+              <Link
+                to="template/notification"
+                className="no-underline hover:underline"
+              >
+                <span className="text-md">News</span>
                 <img
                   src={notificationImage}
                   className="hover:opacity-75 transition-all ease-in-out duration-200"
