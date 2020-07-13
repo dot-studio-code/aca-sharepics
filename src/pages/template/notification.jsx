@@ -59,7 +59,7 @@ export default () => {
               </div>
             </div>
 
-            <div className="col-span-6 w-full col-start-2 text-left flex items-center justify-center pb-24 text-gray z-30">
+            <div className="col-span-6 w-full col-start-2 text-left flex items-center justify-center pb-24 text-gray z-30 overflow-hidden">
               <div>
                 <span
                   dangerouslySetInnerHTML={{
