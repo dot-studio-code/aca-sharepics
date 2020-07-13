@@ -11,6 +11,7 @@ import slugify from "react-slugify";
 export default () => {
   const [image, setImage] = useState(null);
   const [imageScale, setImageScale] = useState(0);
+  const [textScale, setTextScale] = useState(100);
   const [topic, setTopic] = useState("Airline / Thema");
   const [news, setNews] = useState(
     "Hier kommt der Newstext rein.\nEmojis gehen auch! ✈️"
@@ -32,7 +33,9 @@ export default () => {
 
   return (
     <div className="container p-5">
-      <Link to="/" className="block text-center text-md">← zurück zur Auswahl</Link>
+      <Link to="/" className="block text-center text-md">
+        ← zurück zur Auswahl
+      </Link>
       <div className="grid grid-cols-12 col-gap-2 py-2">
         <div className="col-span-12 sm:col-span-9 flex justify-center">
           <br />
@@ -96,7 +99,10 @@ export default () => {
                     dangerouslySetInnerHTML={{
                       __html: formatEmojis(news),
                     }}
-                    style={{ whiteSpace: "pre-line" }}
+                    style={{
+                      whiteSpace: "pre-line",
+                      fontSize: `${(parseInt(textScale) / 100) * 2.7}rem`,
+                    }}
                     className="italic"
                   />
                 </div>
@@ -156,6 +162,18 @@ export default () => {
             defaultValue={news}
             onChange={(e) => setNews(e.target.value)}
             className="border-2 border-black"
+          />
+          <label htmlFor="textScale" className="block">
+            Zoomfaktor für Text
+          </label>
+          <input
+            type="range"
+            id="textScale"
+            name="textScale"
+            min="80"
+            defaultValue={textScale}
+            max="140"
+            onChange={(e) => setTextScale(e.target.value)}
           />
           <button
             className="block border-2 border-black p-1 mt-2"

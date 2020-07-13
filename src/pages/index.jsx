@@ -13,7 +13,7 @@ export default () => {
     <Layout>
       <div style={{ backgroundColor: "rgba(235,235,235,1)" }}>
         <div className="container">
-          <div className="mx-auto grid grid-cols-12 col-gap-2 row-gap-2 py-5">
+          <div className="mx-auto grid grid-cols-12 col-gap-4 row-gap-2 py-5">
             <div className="col-span-12 text-center">
               <h1 className="text-xl text-gray">
                 Aircrew Alliance – Sharepic Generator
