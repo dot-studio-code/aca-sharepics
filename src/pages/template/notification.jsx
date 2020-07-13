@@ -11,9 +11,10 @@ import slugify from "react-slugify";
 
 export default () => {
   const [text, setText] = useState(
-    "Hier kommt der Text rein. Setze Text in [eckige Klammern], damit die Farbe geändert wird."
+    "{Hier} kommt der Text rein. Setze Text in [eckige Klammern], damit die Farbe geändert wird."
   );
   const [type, setType] = useState("question");
+  const [scale, setScale] = useState(100);
   const sharepicRef = useRef(null);
 
   const html2image = () => {
@@ -66,6 +67,13 @@ export default () => {
                       text
                         .replace(/\[/gi, `<span class='text-gray'>`)
                         .replace(/\]/gi, `</span>`)
+                        .replace(
+                          /\{/gi,
+                          `<span style='font-size: ${
+                            parseInt(scale) * 4 + 100
+                          }%'>`
+                        )
+                        .replace(/\}/gi, `</span>`)
                     ),
                   }}
                   style={{
@@ -121,6 +129,23 @@ export default () => {
             onChange={(e) => setText(e.target.value)}
             className="border-2 border-black"
           />
+          {text.match(/\{|\}/gi) && (
+            <>
+              <label htmlFor="scale" className="block">
+                Zoomfaktor für Text
+              </label>
+              <input
+                type="range"
+                id="scale"
+                name="scale"
+                min="0"
+                defaultValue={scale}
+                max="100"
+                onChange={(e) => setScale(e.target.value)}
+              />
+            </>
+          )}
+
           <button
             className="block border-2 border-black p-1 mt-2"
             onClick={() => html2image()}
