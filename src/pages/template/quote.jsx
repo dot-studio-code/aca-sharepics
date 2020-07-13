@@ -12,6 +12,7 @@ import slugify from "react-slugify";
 export default () => {
   const [quoteText, setQuoteText] = useState("Hier kommt der Zitattext rein.");
   const [name, setName] = useState("Name der Person");
+  const [textScale, setTextScale] = useState(100);
   const [position, setPosition] = useState("Position");
   const [backgroundColor, setBackgroundColor] = useState("red");
   const sharepicRef = useRef(null);
@@ -29,8 +30,8 @@ export default () => {
 
   return (
     <div className="container p-5">
-      <Link to="/">zurück zur Auswahl</Link>
-      <div className="grid grid-cols-12 col-gap-2">
+      <Link to="/" className="block text-center">← zurück zur Auswahl</Link>
+      <div className="grid grid-cols-12 col-gap-2 py-2">
         <div className="col-span-12 sm:col-span-9 flex justify-center">
           <div
             style={{
@@ -59,7 +60,10 @@ export default () => {
                   dangerouslySetInnerHTML={{
                     __html: formatEmojis(quoteText),
                   }}
-                  style={{ whiteSpace: "pre-line" }}
+                  style={{
+                    whiteSpace: "pre-line",
+                    fontSize: `${(parseInt(textScale) / 100) * 2.7}rem`,
+                  }}
                   className={`${
                     (name !== "" || position !== "") && "mb-6"
                   } block italic font-bold text-2xl leading-none`}
@@ -116,6 +120,18 @@ export default () => {
             defaultValue={quoteText}
             onChange={(e) => setQuoteText(e.target.value)}
             className="border-2 border-black"
+          />
+          <label htmlFor="textScale" className="block">
+            Zoomfaktor für Text
+          </label>
+          <input
+            type="range"
+            id="textScale"
+            name="textScale"
+            min="80"
+            defaultValue={textScale}
+            max="140"
+            onChange={(e) => setTextScale(e.target.value)}
           />
           <label htmlFor="name" className="block">
             Name

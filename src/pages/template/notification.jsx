@@ -30,8 +30,8 @@ export default () => {
 
   return (
     <div className="container p-5">
-      <Link to="/">zurück zur Auswahl</Link>
-      <div className="grid grid-cols-12 col-gap-2">
+      <Link to="/" className="block text-center">← zurück zur Auswahl</Link>
+      <div className="grid grid-cols-12 col-gap-2 py-2">
         <div className="col-span-12 sm:col-span-9 flex justify-center">
           <br />
           <div

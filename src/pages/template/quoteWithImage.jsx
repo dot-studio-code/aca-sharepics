@@ -10,7 +10,8 @@ import slugify from "react-slugify";
 
 export default () => {
   const [image, setImage] = useState(null);
-  const [scale, setScale] = useState(0);
+  const [imageScale, setImageScale] = useState(0);
+  const [textScale, setTextScale] = useState(100);
   const [quoteText, setQuoteText] = useState("Hier kommt der Zitattext rein.");
   const [name, setName] = useState("Name der Person");
   const [position, setPosition] = useState("Position");
@@ -31,8 +32,8 @@ export default () => {
 
   return (
     <div className="container p-5">
-      <Link to="/">zurück zur Auswahl</Link>
-      <div className="grid grid-cols-12 col-gap-2">
+      <Link to="/" className="block text-center">← zurück zur Auswahl</Link>
+      <div className="grid grid-cols-12 col-gap-2 py-2">
         <div className="col-span-12 sm:col-span-9 flex justify-center">
           <br />
           <div
@@ -67,7 +68,7 @@ export default () => {
                 height: "100%",
                 backgroundPositionX: `${imagePosition.x}px`,
                 backgroundPositionY: `${imagePosition.y}px`,
-                backgroundSize: `${scale * 10 + 100}%`,
+                backgroundSize: `${imageScale * 10 + 100}%`,
               }}
             />
             <div
@@ -85,10 +86,13 @@ export default () => {
                   dangerouslySetInnerHTML={{
                     __html: formatEmojis(quoteText),
                   }}
-                  style={{ whiteSpace: "pre-line" }}
+                  style={{
+                    whiteSpace: "pre-line",
+                    fontSize: `${(parseInt(textScale) / 100) * 2.7}rem`,
+                  }}
                   className={`${
                     (name !== "" || position !== "") && "mb-4"
-                  } block italic font-bold text-2xl leading-none`}
+                  } block italic font-bold leading-none`}
                 />
                 <div>
                   <span
@@ -115,24 +119,33 @@ export default () => {
           </div>
         </div>
         <div className="col-span-12 sm:col-span-3">
+          <label htmlFor="file">Bild auswählen</label>
           <input
             type="file"
+            id="file"
+            name="file"
             onChange={(e) =>
               e.target.files[0] !== null &&
               setImage(URL.createObjectURL(e.target.files[0]))
             }
           />
-          <label htmlFor="scale" className="block">
-            Zoomfaktor
+          <button
+            className="block border-2 border-black p-1 mt-2"
+            onClick={() => setImagePosition({ x: 0, y: 0 })}
+          >
+            Reset Bildausschnitt
+          </button>
+          <label htmlFor="imageScale" className="block">
+            Zoomfaktor für Bild
           </label>
           <input
             type="range"
-            id="scale"
-            name="scale"
+            id="imageScale"
+            name="imageScale"
             min="0"
-            defaultValue={scale}
+            defaultValue={imageScale}
             max="30"
-            onChange={(e) => setScale(e.target.value)}
+            onChange={(e) => setImageScale(e.target.value)}
           />
 
           <label htmlFor="quoteText" className="block">
@@ -145,6 +158,18 @@ export default () => {
             defaultValue={quoteText}
             onChange={(e) => setQuoteText(e.target.value)}
             className="border-2 border-black"
+          />
+          <label htmlFor="textScale" className="block">
+            Zoomfaktor für Text
+          </label>
+          <input
+            type="range"
+            id="textScale"
+            name="textScale"
+            min="80"
+            defaultValue={textScale}
+            max="140"
+            onChange={(e) => setTextScale(e.target.value)}
           />
           <label htmlFor="name" className="block">
             Name
@@ -171,9 +196,6 @@ export default () => {
             onClick={() => html2image()}
           >
             Download
-          </button>
-          <button onClick={() => setImagePosition({ x: 0, y: 0 })}>
-            reset
           </button>
         </div>
       </div>

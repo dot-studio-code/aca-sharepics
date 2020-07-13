@@ -10,7 +10,7 @@ import slugify from "react-slugify";
 
 export default () => {
   const [image, setImage] = useState(null);
-  const [scale, setScale] = useState(0);
+  const [imageScale, setImageScale] = useState(0);
   const [topic, setTopic] = useState("Airline / Thema");
   const [news, setNews] = useState(
     "Hier kommt der Newstext rein.\nEmojis gehen auch! ✈️"
@@ -32,8 +32,8 @@ export default () => {
 
   return (
     <div className="container p-5">
-      <Link to="/">zurück zur Auswahl</Link>
-      <div className="grid grid-cols-12 col-gap-2">
+      <Link to="/" className="block text-center">← zurück zur Auswahl</Link>
+      <div className="grid grid-cols-12 col-gap-2 py-2">
         <div className="col-span-12 sm:col-span-9 flex justify-center">
           <br />
           <div
@@ -69,7 +69,7 @@ export default () => {
                 height: "50%",
                 backgroundPositionX: `${imagePosition.x}px`,
                 backgroundPositionY: `${imagePosition.y}px`,
-                backgroundSize: `${scale * 10 + 100}%`,
+                backgroundSize: `${imageScale * 10 + 100}%`,
               }}
             />
             <div
@@ -101,34 +101,42 @@ export default () => {
                   />
                 </div>
               </div>
-
               <AcaColored width="200" className="block mb-12" />
             </div>
-
             <ColouredBar width="600" className="absolute bottom-0 z-30" />
           </div>
         </div>
         <div className="col-span-12 sm:col-span-3">
+          <label htmlFor="file">Bild auswählen</label>
           <input
             type="file"
+            id="file"
+            name="file"
+            id="file"
+            name="file"
             onChange={(e) =>
               e.target.files[0] !== null &&
               setImage(URL.createObjectURL(e.target.files[0]))
             }
           />
-          <label htmlFor="scale" className="block">
-            Zoomfaktor
+          <label htmlFor="imageScale" className="block">
+            Zoomfaktor für Bild
           </label>
           <input
             type="range"
-            id="scale"
-            name="scale"
+            id="imageScale"
+            name="imageScale"
             min="0"
-            defaultValue={scale}
+            defaultValue={imageScale}
             max="30"
-            onChange={(e) => setScale(e.target.value)}
+            onChange={(e) => setImageScale(e.target.value)}
           />
-
+          <button
+            className="block border-2 border-black p-1 mt-2"
+            onClick={() => setImagePosition({ x: 0, y: 0 })}
+          >
+            Reset Bildausschnitt
+          </button>
           <label htmlFor="topic" className="block">
             Thema
           </label>
@@ -154,9 +162,6 @@ export default () => {
             onClick={() => html2image()}
           >
             Download
-          </button>
-          <button onClick={() => setImagePosition({ x: 0, y: 0 })}>
-            reset
           </button>
         </div>
       </div>
