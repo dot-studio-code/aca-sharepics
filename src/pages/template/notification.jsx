@@ -47,8 +47,8 @@ export default () => {
                 backgroundColor: "#fff",
               }}
             />
-            <div className="absolute w-full top-0 left-0 text-black z-30 flex justify-center mt-4">
-              <div className="flex items-center text-black font-bold italic">
+            <div className="absolute w-full top-0 left-0 text-gray z-30 flex justify-center mt-4">
+              <div className="flex items-center text-gray font-bold italic">
                 <NotificationIcon type={type} className="inline mr-3" />
                 {
                   notificationTypes.find(
@@ -58,13 +58,13 @@ export default () => {
               </div>
             </div>
 
-            <div className="col-span-6 w-full col-start-2 text-left flex items-center justify-center pb-24 text-black z-30">
+            <div className="col-span-6 w-full col-start-2 text-left flex items-center justify-center pb-24 text-gray z-30">
               <div>
                 <span
                   dangerouslySetInnerHTML={{
                     __html: formatEmojis(
                       text
-                        .replace(/\[/gi, `<span style='color: black'>`)
+                        .replace(/\[/gi, `<span class='text-gray'>`)
                         .replace(/\]/gi, `</span>`)
                     ),
                   }}

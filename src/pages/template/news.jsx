@@ -86,7 +86,7 @@ export default () => {
                 className="mt-2 font-bold italic text-white text-md"
               />
             </div>
-            <div className="col-span-6 w-full col-start-2 text-center flex flex-col items-center text-black z-30">
+            <div className="col-span-6 w-full col-start-2 text-center flex flex-col items-center text-gray z-30">
               <div
                 style={{ flexGrow: "1" }}
                 className="flex items-center self-center leading-none font-bold text-2xl"
