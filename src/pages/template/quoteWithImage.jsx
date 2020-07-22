@@ -75,7 +75,7 @@ export default () => {
               className="absolute top-0 left-0 w-full h-full z-20"
               style={{
                 backgroundImage:
-                  "linear-gradient(180deg, #fff 0%, #000000 120%)",
+                  "linear-gradient(180deg, #fff 50%, #000000 110%)",
                 mixBlendMode: "multiply",
               }}
             />
