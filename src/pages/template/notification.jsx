@@ -6,10 +6,10 @@ import ColouredBar from "../../components/svg/colouredBar";
 import { Link } from "gatsby";
 import NotificationIcon from "../../components/notificationIcon";
 import { formatEmojis } from "../../components/lib/lib";
-import htmlToImage from "html-to-image";
+import * as htmlToImage from "html-to-image";
 import slugify from "react-slugify";
 
-export default () => {
+const Notification = () => {
   const [text, setText] = useState(
     "{Hier} kommt der Text rein. Setze Text in [eckige Klammern], damit die Farbe geändert wird."
   );
@@ -31,7 +31,7 @@ export default () => {
   return (
     <div className="container p-5">
       <Link to="/" className="block text-center text-md">← zurück zur Auswahl</Link>
-      <div className="grid grid-cols-12 col-gap-2 py-2">
+      <div className="grid grid-cols-12 gap-x-2 py-2">
         <div className="col-span-12 sm:col-span-9 flex justify-center">
           <br />
           <div
@@ -39,7 +39,7 @@ export default () => {
               width: "600px",
               height: "600px",
             }}
-            className="grid grid-cols-8 col-gap-2 relative"
+            className="grid grid-cols-8 gap-x-2 relative"
             ref={sharepicRef}
           >
             <div
@@ -157,3 +157,5 @@ export default () => {
     </div>
   );
 };
+
+export default Notification;

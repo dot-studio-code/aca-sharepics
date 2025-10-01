@@ -30,12 +30,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-omni-font-loader`,
       options: {
-        fonts: [
+        enableListener: true,
+        preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
+        web: [
           {
-            family: `IBM Plex Sans`,
-            variants: [`400`, `600`],
+            name: `IBM Plex Sans`,
+            file: `https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap`,
           },
         ],
       },

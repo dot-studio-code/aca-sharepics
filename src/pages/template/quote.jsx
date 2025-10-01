@@ -6,10 +6,10 @@ import { Link } from "gatsby";
 import QuoteIcon from "../../components/svg/quote";
 import { colors } from "../../config/vars";
 import { formatEmojis } from "../../components/lib/lib";
-import htmlToImage from "html-to-image";
+import * as htmlToImage from "html-to-image";
 import slugify from "react-slugify";
 
-export default () => {
+const Quote = () => {
   const [quoteText, setQuoteText] = useState("Hier kommt der Zitattext rein.");
   const [name, setName] = useState("Name der Person");
   const [textScale, setTextScale] = useState(100);
@@ -31,7 +31,7 @@ export default () => {
   return (
     <div className="container p-5">
       <Link to="/" className="block text-center text-md">← zurück zur Auswahl</Link>
-      <div className="grid grid-cols-12 col-gap-2 py-2">
+      <div className="grid grid-cols-12 gap-x-2 py-2">
         <div className="col-span-12 sm:col-span-9 flex justify-center">
           <div
             style={{
@@ -41,7 +41,7 @@ export default () => {
                 (c) => c.label === backgroundColor && c.forQuote === true
               ).color,
             }}
-            className="grid grid-cols-8 col-gap-2 relative"
+            className="grid grid-cols-8 gap-x-2 relative"
             ref={sharepicRef}
           >
             <div
@@ -164,3 +164,6 @@ export default () => {
     </div>
   );
 };
+
+
+export default Quote;

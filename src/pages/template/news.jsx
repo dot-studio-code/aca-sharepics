@@ -5,10 +5,10 @@ import ColouredBar from "../../components/svg/colouredBar";
 import Draggable from "react-draggable";
 import { Link } from "gatsby";
 import { formatEmojis } from "../../components/lib/lib";
-import htmlToImage from "html-to-image";
+import * as htmlToImage from "html-to-image";
 import slugify from "react-slugify";
 
-export default () => {
+const News = () => {
   const [image, setImage] = useState(null);
   const [imageScale, setImageScale] = useState(0);
   const [textScale, setTextScale] = useState(100);
@@ -36,7 +36,7 @@ export default () => {
       <Link to="/" className="block text-center text-md">
         ← zurück zur Auswahl
       </Link>
-      <div className="grid grid-cols-12 col-gap-2 py-2">
+      <div className="grid grid-cols-12 gap-x-2 py-2">
         <div className="col-span-12 sm:col-span-9 flex justify-center">
           <br />
           <div
@@ -45,7 +45,7 @@ export default () => {
               height: "600px",
               gridAutoRows: "1fr",
             }}
-            className="grid grid-cols-8 col-gap-2 relative bg-white"
+            className="grid grid-cols-8 gap-x-2 relative bg-white"
             ref={sharepicRef}
           >
             <Draggable
@@ -186,3 +186,5 @@ export default () => {
     </div>
   );
 };
+
+export default News;
